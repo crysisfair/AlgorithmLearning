@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leetcode", "..\Leetcode\Leetcode.csproj", "{EAF5F157-BA80-4BD2-904D-D43FEF56A0FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeetcodeUnitTest", "..\LeetcodeUnitTest\LeetcodeUnitTest.csproj", "{162498B1-FEDA-4414-8186-D1C3A4D2855E}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAF5F157-BA80-4BD2-904D-D43FEF56A0FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAF5F157-BA80-4BD2-904D-D43FEF56A0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAF5F157-BA80-4BD2-904D-D43FEF56A0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAF5F157-BA80-4BD2-904D-D43FEF56A0FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{162498B1-FEDA-4414-8186-D1C3A4D2855E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{162498B1-FEDA-4414-8186-D1C3A4D2855E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{162498B1-FEDA-4414-8186-D1C3A4D2855E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{162498B1-FEDA-4414-8186-D1C3A4D2855E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
