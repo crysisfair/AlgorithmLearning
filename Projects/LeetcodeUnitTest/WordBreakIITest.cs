@@ -19,7 +19,7 @@ namespace LeetcodeUnitTest
         }
 
         [TestMethod]
-        public void WORdBreakIITestExample()
+        public void WordBreakIITestExample()
         {
             WordBreakII wb = new WordBreakII();
             SortedSet<string> wordset = new SortedSet<string>();
@@ -34,13 +34,25 @@ namespace LeetcodeUnitTest
         }
 
         [TestMethod]
-        public void WORdBreakIITestErrorCase()
+        public void WordBreakIITestErrorCase()
         {
             WordBreakII wb = new WordBreakII();
             SortedSet<string> wordset = new SortedSet<string>();
             wordset.Add("aaaa");
             wordset.Add("aaa");
             List<string> strs = (List<string>)wb.WordBreak("aaaaaaa", wordset);
+            List<string> target = new List<string>() { "aaaa aaa", "aaa aaaa" };
+            Assert.IsTrue(isListEqual(target, strs));
+        }
+
+        [TestMethod]
+        public void WordBreakIITestErrorCaseMyself()
+        {
+            WordBreakII wb = new WordBreakII();
+            SortedSet<string> wordset = new SortedSet<string>();
+            wordset.Add("aaaa");
+            wordset.Add("aaa");
+            List<string> strs = (List<string>)wb.WordBreak("aaaaaaaa", wordset);
             List<string> target = new List<string>() { "aaaa aaa", "aaa aaaa" };
             Assert.IsTrue(isListEqual(target, strs));
         }
