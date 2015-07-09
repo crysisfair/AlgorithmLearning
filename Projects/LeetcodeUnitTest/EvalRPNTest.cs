@@ -5,7 +5,7 @@ using Leetcode;
 namespace LeetcodeUnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class EvalRPNTest
     {
         [TestMethod]
         public void TestEvalRPN()
