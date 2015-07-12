@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Implement a trie with insert, search, and startsWith methods.
+ * 
+ * Note:
+ * You may assume that all inputs are consist of lowercase letters a-z. 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

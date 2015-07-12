@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EvalRPNTest.cs" />
     <Compile Include="LongestPrefixTest.cs" />
+    <Compile Include="LargestRectInHistogramTest.cs" />
     <Compile Include="WordBreakIITest.cs" />
   </ItemGroup>
   <ItemGroup>
