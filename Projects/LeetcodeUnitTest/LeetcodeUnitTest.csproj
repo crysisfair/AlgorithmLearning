@@ -53,6 +53,7 @@
     <Compile Include="TrieTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EvalRPNTest.cs" />
+    <Compile Include="LongestPrefixTest.cs" />
     <Compile Include="WordBreakIITest.cs" />
   </ItemGroup>
   <ItemGroup>
