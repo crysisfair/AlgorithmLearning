@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+ * Write a function to find the longest common prefix string amongst an array of strings. 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
