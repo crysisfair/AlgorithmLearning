@@ -83,9 +83,59 @@ namespace Leetcode
 
     public class JumpGameII
     {
-        public int Jump(int nums)
+        public bool CanJump(int[] nums)
         {
-            return 0;
+            if (nums.Length <= 1) return true;
+            if (nums[0] >= nums.Length - 1) return true;
+            int maxLength = nums[0];
+            for(int i = 1; i< nums.Length; i ++)
+            {
+                if(maxLength < i)
+                {
+                    continue;
+                }
+                else if(maxLength >= i && i + nums[i] >= nums.Length - 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    maxLength = Math.Max(i + nums[i], maxLength);
+                    if (maxLength >= nums.Length - 1) return true;
+                }
+            }
+            return false;
+        }
+
+        public int Jump(int[] nums)
+        {
+            if (CanJump(nums) == false) return 0;
+            int lastMaxLength = 0;
+            int currentMaxLength = 0;
+            int steps = 0;
+            if(nums.Length <= 1) return 0;
+            if(nums[0] >= nums.Length - 1) return 1;
+            List<int> stepsResult = new List<int>();
+            for(int i = 0; i < nums.Length; ++i)
+            {
+                if (lastMaxLength < i && lastMaxLength < currentMaxLength && i <= currentMaxLength)
+                {
+                    steps += 1;
+                    lastMaxLength = currentMaxLength;
+                }
+                currentMaxLength = Math.Max(currentMaxLength, i + nums[i]);
+                if (currentMaxLength >= nums.Length - 1) stepsResult.Add(steps + 1);
+            }
+            int min = 0;
+            if(stepsResult.Count > 0)
+            {
+                min = stepsResult[0];
+                foreach(int s in stepsResult)
+                {
+                    min = Math.Min(min, s);
+                }
+            }
+            return min;
         }
     }
 }
