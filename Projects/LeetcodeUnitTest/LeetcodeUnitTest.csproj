@@ -56,6 +56,7 @@
     <Compile Include="LongestPrefixTest.cs" />
     <Compile Include="LargestRectInHistogramTest.cs" />
     <Compile Include="JumpGameTest.cs" />
+    <Compile Include="BestTimeToBuyAndSellTest.cs" />
     <Compile Include="WordBreakIITest.cs" />
   </ItemGroup>
   <ItemGroup>
