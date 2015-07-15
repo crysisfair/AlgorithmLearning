@@ -65,4 +65,50 @@ namespace Leetcode
             return profit;
         }
     }
+
+    /*
+     * Say you have an array for which the ith element is the price of a given stock on day i.
+
+     * Design an algorithm to find the maximum profit. You may complete at most two transactions.
+     * 
+     * Note:
+     * You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
+     */
+    public class BestTimeToBuyAndSellIII
+    {
+        public int MaxProfit(int[] prices)
+        {
+            if (prices.Length <= 1) return 0;
+            int secBottom = prices[0];
+            int secTop = prices[1];
+            int newBottom = prices[0];
+            int firstProfit = 0;
+            int secProfit = 0;
+            for (int i = 0; i < prices.Length; i++)
+            { 
+                if(prices[i] > secTop)
+                {
+                    secTop = prices[i];
+                    secProfit = prices[i] - secBottom;
+                }
+                else if(prices[i] < secBottom)
+                {
+                    newBottom = prices[i];
+                }
+                if(secProfit < prices[i] - newBottom)
+                {
+                    secTop = prices[i];
+                    secBottom = newBottom;
+                    secProfit = secTop - secBottom;
+                }
+                if(secProfit > firstProfit)
+                {
+                    int temp = firstProfit;
+                    firstProfit = secProfit;
+                    secProfit = temp;
+                }
+            }
+            return secProfit + firstProfit;
+        }
+    }
 }
