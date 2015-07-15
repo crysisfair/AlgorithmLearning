@@ -76,39 +76,45 @@ namespace Leetcode
      */
     public class BestTimeToBuyAndSellIII
     {
+        class Point
+        {
+            public int Price { get; set; }
+            public int Index { get; set; }
+        }
+
         public int MaxProfit(int[] prices)
         {
             if (prices.Length <= 1) return 0;
-            int secBottom = prices[0];
-            int secTop = prices[1];
-            int newBottom = prices[0];
-            int firstProfit = 0;
-            int secProfit = 0;
-            for (int i = 0; i < prices.Length; i++)
-            { 
-                if(prices[i] > secTop)
+            int[] maxFromHead = new int[prices.Length];
+            int[] maxFromTail = new int[prices.Length];
+            maxFromHead[0] = 0;
+            int bottom = prices[0];
+            int currentMax = 0;
+            for(int i = 1; i < prices.Length; i++ )
+            {
+                bottom = Math.Min(prices[i], bottom);
+                if (currentMax < prices[i] - bottom)
                 {
-                    secTop = prices[i];
-                    secProfit = prices[i] - secBottom;
+                    currentMax = prices[i] - bottom;
                 }
-                else if(prices[i] < secBottom)
+                maxFromHead[i] = currentMax;
+            }
+            int top = prices[prices.Length - 1];
+            int maxProfit = maxFromHead[0] + maxFromHead[prices.Length - 1];
+            currentMax = 0;
+            for(int j = prices.Length - 2; j >= 0; j-- )
+            {
+                top = Math.Max(prices[j + 1], top);
+                if(currentMax < top - prices[j])
                 {
-                    newBottom = prices[i];
+                    currentMax = top - prices[j];
                 }
-                if(secProfit < prices[i] - newBottom)
+                if(maxProfit < maxFromHead[j] + currentMax)
                 {
-                    secTop = prices[i];
-                    secBottom = newBottom;
-                    secProfit = secTop - secBottom;
-                }
-                if(secProfit > firstProfit)
-                {
-                    int temp = firstProfit;
-                    firstProfit = secProfit;
-                    secProfit = temp;
+                    maxProfit = maxFromHead[j] + currentMax;
                 }
             }
-            return secProfit + firstProfit;
+            return maxProfit;
         }
     }
 }
