@@ -57,6 +57,7 @@
     <Compile Include="LargestRectInHistogramTest.cs" />
     <Compile Include="JumpGameTest.cs" />
     <Compile Include="BestTimeToBuyAndSellTest.cs" />
+    <Compile Include="SquareTest.cs" />
     <Compile Include="WordBreakIITest.cs" />
   </ItemGroup>
   <ItemGroup>
