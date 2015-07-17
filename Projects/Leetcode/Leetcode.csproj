@@ -46,6 +46,7 @@
     <Compile Include="EvalReversePolishNotation.cs" />
     <Compile Include="HangmingWeight.cs" />
     <Compile Include="JumpGame.cs" />
+    <Compile Include="LargestNumer.cs" />
     <Compile Include="LongestPrefix.cs" />
     <Compile Include="LargestRectangleInHistogram.cs" />
     <Compile Include="Program.cs" />
