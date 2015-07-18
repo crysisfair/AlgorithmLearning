@@ -45,16 +45,16 @@ namespace LeetcodeUnitTest
             Assert.IsTrue(isListEqual(target, strs));
         }
 
-        [TestMethod]
-        public void WordBreakIITestErrorCaseMyself()
-        {
-            WordBreakII wb = new WordBreakII();
-            SortedSet<string> wordset = new SortedSet<string>();
-            wordset.Add("aaaa");
-            wordset.Add("aaa");
-            List<string> strs = (List<string>)wb.WordBreak("aaaaaaaa", wordset);
-            List<string> target = new List<string>() { "aaaa aaa", "aaa aaaa" };
-            Assert.IsTrue(isListEqual(target, strs));
-        }
+        // [TestMethod]
+        // public void WordBreakIITestErrorCaseMyself()
+        // {
+        //     WordBreakII wb = new WordBreakII();
+        //     SortedSet<string> wordset = new SortedSet<string>();
+        //     wordset.Add("aaaa");
+        //     wordset.Add("aaa");
+        //     List<string> strs = (List<string>)wb.WordBreak("aaaaaaaa", wordset);
+        //     List<string> target = new List<string>() { "aaaa aaa", "aaa aaaa" };
+        //     Assert.IsTrue(isListEqual(target, strs));
+        // }
     }
 }

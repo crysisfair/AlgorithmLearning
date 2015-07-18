@@ -59,6 +59,7 @@
     <Compile Include="BestTimeToBuyAndSellTest.cs" />
     <Compile Include="SquareTest.cs" />
     <Compile Include="LargestNumberTest.cs" />
+    <Compile Include="ThreeSumTest.cs" />
     <Compile Include="WordBreakIITest.cs" />
   </ItemGroup>
   <ItemGroup>
