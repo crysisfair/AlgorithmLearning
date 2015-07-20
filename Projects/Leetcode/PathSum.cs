@@ -60,7 +60,7 @@ namespace Leetcode
             /// <returns></returns>
             public int GetLeftIndex(int N)
             {
-                if (2 * index - 1 <= N) return 2 * index -1 ;
+                if (2 * index - 1 <= N) return 2 * index - 1;
                 return 0;
             }
 
