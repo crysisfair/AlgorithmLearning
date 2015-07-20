@@ -49,6 +49,7 @@
     <Compile Include="LargestNumer.cs" />
     <Compile Include="LongestPrefix.cs" />
     <Compile Include="LargestRectangleInHistogram.cs" />
+    <Compile Include="PathSum.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RectangleAre.cs" />
