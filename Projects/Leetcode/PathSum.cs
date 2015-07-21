@@ -32,7 +32,7 @@ namespace Leetcode
  *     public TreeNode(int x) { val = x; }
  * }
  */
-    public class PathSum
+    public class PathSumLinkList
     {
         public class TreeNode
         {
@@ -60,13 +60,13 @@ namespace Leetcode
             /// <returns></returns>
             public int GetLeftIndex(int N)
             {
-                if (2 * index - 1 <= N) return 2 * index - 1;
+                if (2 * index + 1 < N) return 2 * index + 1;
                 return 0;
             }
 
             public int GetRightIndex(int N)
             {
-                if (2 * index + 1 <= N) return 2 * index + 1;
+                if (2 * (index + 1) < N) return 2 * (index + 1);
                 return 0;
             }
 
@@ -83,12 +83,14 @@ namespace Leetcode
             if(leftIndex != 0)
             {
                 node.left = new TreeNode(nodes[leftIndex], leftIndex);
+                node.left.parent = node;
                 GenerateTree(nodes, ref node.left);
             }
             int rightIndex = node.GetRightIndex(nodes.Length);
             if(rightIndex != 0)
             {
                 node.right = new TreeNode(nodes[rightIndex], rightIndex);
+                node.right.parent = node;
                 GenerateTree(nodes, ref node.right);
             }
         }
@@ -99,31 +101,70 @@ namespace Leetcode
             TreeNode currentNode = root;
             while(currentNode != null || s.Count != 0)
             {
-                currentNode.CurrentPathSum = currentNode.parent.CurrentPathSum + currentNode.val;
-                if(currentNode.CurrentPathSum == sum && currentNode.left == null && currentNode.right == null )
+                if (currentNode.parent != null)
+                    currentNode.CurrentPathSum = currentNode.parent.CurrentPathSum + currentNode.val;
+                else
+                    currentNode.CurrentPathSum = currentNode.val;
+
+                if(currentNode.CurrentPathSum == sum)
                 {
-                    return true;
+                    if (currentNode.left == null && currentNode.right == null) return true; // leaf node
+                    else
+                    {
+                        if (currentNode.left != null && currentNode.left.val == 0) s.Push(currentNode.left);
+                        if (currentNode.right != null && currentNode.right.val == 0) s.Push(currentNode.right);
+
+                        if (s.Count != 0) currentNode = s.Pop();
+                        else return false;
+                    }
+                }
+                else if(currentNode.CurrentPathSum > sum)
+                {
+                    if (s.Count != 0) currentNode = s.Pop();
+                    else return false;
                 }
                 else if(currentNode.CurrentPathSum < sum)
                 {
                     if(currentNode.left != null)
                     {
-                        if(currentNode.left.val <= sum - currentNode.CurrentPathSum)
+                        if(currentNode.left.val >= 0 && currentNode.left.val <= sum - currentNode.CurrentPathSum)
                         {
-                            s.Push(currentNode);
+                            s.Push(currentNode.left);
                         }
                     }
                     if(currentNode.right != null)
                     {
-                        if(currentNode.right.val <= sum - currentNode.CurrentPathSum)
+                        if(currentNode.right.val >= 0 && currentNode.right.val <= sum - currentNode.CurrentPathSum)
                         {
-                            s.Push(currentNode);
+                            s.Push(currentNode.right);
                         }
                     }
-                    currentNode = s.Pop();
+                    if (s.Count != 0) currentNode = s.Pop();
+                    else return false;
                 }
             }
             return false;
+        }
+    }
+
+    public class PathSum
+    {
+        public bool Search(PathSumLinkList.TreeNode node, int sum, int currentSum)
+        {
+            if (node == null) return false;
+
+            if (node.val < 0) return false;
+
+            if(node.left == null && node.right == null)
+            {
+                return node.val + currentSum == sum;
+            }
+
+            return Search(node.left, sum, node.val + currentSum) || Search(node.right, sum, node.val + currentSum);
+        }
+        public bool HasPathSum(PathSumLinkList.TreeNode root, int sum)
+        {
+            return Search(root, sum, 0);
         }
     }
 }
