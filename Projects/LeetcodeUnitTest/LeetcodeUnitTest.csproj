@@ -61,6 +61,7 @@
     <Compile Include="LargestNumberTest.cs" />
     <Compile Include="ThreeSumTest.cs" />
     <Compile Include="TwoSumTest.cs" />
+    <Compile Include="PathSumTest.cs" />
     <Compile Include="WordBreakIITest.cs" />
   </ItemGroup>
   <ItemGroup>
